@@ -38,6 +38,11 @@ namespace DataStructure
             linkedList.AddFirst(3);
             linkedList.AddFirst(4);
             linkedList.AddAfter(linkedList.Head.Next, 31);
+
+            foreach (var item in linkedList)
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadKey();
 
         }

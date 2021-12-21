@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataStructure.SingleLinkedList
 {
-    public class SinglyLinkedList<T>
+    public class SinglyLinkedList<T> : IEnumerable<T>
     {
         public SinglyLinkedListNode<T> Head { get; set; }
 
@@ -95,6 +96,16 @@ namespace DataStructure.SingleLinkedList
             throw new ArgumentException("The reference has not been found in this list");
 
 
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new SinglyLinkedListEnumerator<T>(Head);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

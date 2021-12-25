@@ -82,7 +82,7 @@ namespace DataStructure.SingleLinkedList
 
             var newNode = new SinglyLinkedListNode<T>(value);
             var current = Head;
-            while (current !=  null)
+            while (current != null)
             {
                 if (current.Equals(node))
                 {
@@ -93,9 +93,8 @@ namespace DataStructure.SingleLinkedList
 
                 current = current.Next;
             }
+
             throw new ArgumentException("The reference has not been found in this list");
-
-
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -106,6 +105,44 @@ namespace DataStructure.SingleLinkedList
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public T RemoveFirst()
+        {
+            if (Head == null)
+                throw new Exception("Underflow!");
+            var firstValue = Head.Value;
+            Head = Head.Next;
+            return firstValue;
+        }
+
+        public T RemoveLast()
+        {
+            var currrent = Head;
+            SinglyLinkedListNode<T> prev = null;
+            while (currrent.Next != null)
+            {
+                prev = currrent;
+                currrent = currrent.Next;
+            }
+
+            var value = prev.Next.Value;
+            prev.Next = null;
+            return value;
+        }
+
+        public T RemoveBetween(SinglyLinkedListNode<T> node)
+        {
+            var current = Head;
+            SinglyLinkedListNode<T> prevNode = null;
+            while (current != node)
+            {
+                prevNode = current;
+                current = current.Next;
+            }
+
+            prevNode.Next = node.Next;
+            return node.Value;
         }
     }
 }

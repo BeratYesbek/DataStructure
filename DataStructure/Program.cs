@@ -15,10 +15,87 @@ namespace DataStructure
             //RemoveLastSinglyLinkedList();
             //RemoveBetweenSinglyLinkedList();
 
-            // Doubly Linked List
+            // *********** Doubly Linked List ************************
 
             //AddFirstDoublyLinkedList();
-            AddLastDoublyLinkedList();
+            //AddLastDoublyLinkedList();
+            //AddAfterDoublyLinkedList();
+            //GetAllNodesDoublyLinkedList();
+            //AddWithConstructor();
+            //RemoveFirstDoublyLinkedList();
+            //RemoveLastDoublyLinkedList();
+            RemoveBetweenDoublyLinkedList();
+        }
+
+
+        /*---------------------- Doubly Linked List -------------------*/
+        private static void RemoveBetweenDoublyLinkedList()
+        {
+            var list = new DoublyLinkedList<int>();
+            list.AddFirst(5);
+            list.AddFirst(7);
+            list.AddFirst(8);
+            list.AddFirst(9);
+            list.AddFirst(10);
+            var value = list.RemoveBetween(list.Head.Next);
+            Console.WriteLine(value);
+        }
+
+        private static void RemoveLastDoublyLinkedList()
+        {
+            var list = new DoublyLinkedList<int>();
+            list.AddFirst(5);
+            list.AddFirst(7);
+            list.AddFirst(8);
+            list.AddFirst(9);
+            list.AddFirst(10);
+            var value = list.RemoveLast();
+            Console.WriteLine(value);
+        }
+
+        private static void RemoveFirstDoublyLinkedList()
+        {
+            var list = new DoublyLinkedList<int>();
+            list.AddFirst(5);
+            list.AddFirst(7);
+            list.AddFirst(8);
+            list.AddFirst(9);
+            list.AddFirst(10);
+            var value = list.RemoveFirst();
+            Console.WriteLine(value);
+        }
+
+        private static void AddWithConstructor()
+        {
+            var list = new DoublyLinkedList<float>(new float[] {5, 6, 8, 84, 96});
+            foreach (var value in list)
+            {
+                Console.WriteLine(value);
+            }
+        }
+
+        private static void GetAllNodesDoublyLinkedList()
+        {
+            var list = new DoublyLinkedList<int>();
+            list.AddFirst(10);
+            list.AddFirst(8);
+            list.AddLast(15);
+            list.AddAfter(list.Head.Next, 18);
+            foreach (var value in list)
+            {
+                Console.WriteLine(value);
+            }
+        }
+
+        private static void AddAfterDoublyLinkedList()
+        {
+            var list = new DoublyLinkedList<int>();
+            list.AddFirst(10);
+            list.AddFirst(8);
+            list.AddLast(15);
+            list.AddAfter(list.Head.Next, 18);
+
+            Console.ReadKey();
         }
 
         private static void AddLastDoublyLinkedList()
@@ -30,6 +107,7 @@ namespace DataStructure
 
             Console.ReadKey();
         }
+
         private static void AddFirstDoublyLinkedList()
         {
             var list = new DoublyLinkedList<int>();
@@ -40,7 +118,7 @@ namespace DataStructure
             Console.ReadKey();
         }
 
-        /*----------------------------------------------------------------------*/
+        /*---------------------- Singly Linked List -------------------*/
         private static void RemoveBetweenSinglyLinkedList()
         {
             var linkedList = new SinglyLinkedList<int>();
@@ -53,6 +131,7 @@ namespace DataStructure
             {
                 Console.WriteLine(item);
             }
+
             Console.ReadKey();
         }
 
@@ -68,6 +147,7 @@ namespace DataStructure
             {
                 Console.WriteLine(item);
             }
+
             Console.ReadKey();
         }
 
@@ -82,9 +162,10 @@ namespace DataStructure
             {
                 Console.WriteLine(item);
             }
-            Console.ReadKey();
 
+            Console.ReadKey();
         }
+
         private static void AddFirstToSinglyLinkedList()
         {
             var linkedList = new SinglyLinkedList<int>();
@@ -116,8 +197,8 @@ namespace DataStructure
             {
                 Console.WriteLine(item);
             }
-            Console.ReadKey();
 
+            Console.ReadKey();
         }
     }
 }

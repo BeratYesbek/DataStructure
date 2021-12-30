@@ -1,6 +1,7 @@
 ﻿using System;
 using DataStructure.DoublyLinkedList;
 using DataStructure.SingleLinkedList;
+using DataStructure.Stack;
 
 namespace DataStructure
 {
@@ -8,6 +9,8 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
+            // *********** Singly Linked List ************************
+
             //AddFirstToSinglyLinkedList();
             //AddLastToSinglyLinkedList();
             //AddAfterToSinglyLinkedList();
@@ -24,7 +27,39 @@ namespace DataStructure
             //AddWithConstructor();
             //RemoveFirstDoublyLinkedList();
             //RemoveLastDoublyLinkedList();
-            RemoveBetweenDoublyLinkedList();
+            //RemoveBetweenDoublyLinkedList();
+
+            // ********** Stack *****************************************
+
+            //PushArray();
+            //PushLinkedList();
+        }
+
+        /*---------------------- Stack -------------------------------- */
+
+        private static void PushArray()
+        {
+            var stack = new Stack<int>();
+            stack.Push(5);
+            stack.Push(48);
+            stack.Push(9);
+
+            stack.Pop();
+            Console.WriteLine(stack.Peek());
+
+        }
+
+        private static void PushLinkedList()
+        {
+            var stack = new Stack<int>();
+            stack.Push(26);
+            stack.Push(4);
+            stack.Push(18);
+            stack.Push(9);
+
+            stack.Pop();
+            
+            Console.WriteLine(stack.Peek());
         }
 
 

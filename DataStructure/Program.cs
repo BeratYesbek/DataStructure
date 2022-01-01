@@ -1,5 +1,6 @@
 ﻿using System;
 using DataStructure.DoublyLinkedList;
+using DataStructure.Queue;
 using DataStructure.SingleLinkedList;
 using DataStructure.Stack;
 
@@ -33,6 +34,59 @@ namespace DataStructure
 
             //PushArray();
             //PushLinkedList();
+
+
+            //********** Queue ******************************************
+            RemoveQueueDoublyLinkedList();
+            //AddQueueDoublyLinkedList();
+            //RemoveQueueArray();
+            //AddQueueArray();
+        }
+        private static void RemoveQueueDoublyLinkedList()
+        {
+            var queue = new Queue<int>(QueueType.LinkedList);
+            queue.EnQueue(5);
+            queue.EnQueue(7);
+            queue.EnQueue(9);
+
+            queue.DeQueue();
+            Console.WriteLine(queue.Peek());
+
+        }
+
+        private static void AddQueueDoublyLinkedList()
+        {
+            var queue = new Queue<int>(QueueType.LinkedList);
+            queue.EnQueue(5);
+            queue.EnQueue(7);
+            queue.EnQueue(9);
+
+            Console.WriteLine(queue.Peek());
+
+        }
+
+        private static void RemoveQueueArray()
+        {
+            var queue = new Queue<int>();
+            queue.EnQueue(5);
+            queue.EnQueue(7);
+            queue.EnQueue(9);
+
+            queue.DeQueue();
+            Console.WriteLine(queue.Peek());
+
+        }
+
+        private static void AddQueueArray()
+        {
+            var queue = new Queue<int>();
+            queue.EnQueue(5);
+            queue.EnQueue(7);
+            queue.EnQueue(9);
+
+            Console.WriteLine(queue.Peek());
+
+
         }
 
         /*---------------------- Stack -------------------------------- */
@@ -58,7 +112,7 @@ namespace DataStructure
             stack.Push(9);
 
             stack.Pop();
-            
+
             Console.WriteLine(stack.Peek());
         }
 
@@ -102,7 +156,7 @@ namespace DataStructure
 
         private static void AddWithConstructor()
         {
-            var list = new DoublyLinkedList<float>(new float[] {5, 6, 8, 84, 96});
+            var list = new DoublyLinkedList<float>(new float[] { 5, 6, 8, 84, 96 });
             foreach (var value in list)
             {
                 Console.WriteLine(value);

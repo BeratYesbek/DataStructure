@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using DataStructure.DoublyLinkedList;
 using DataStructure.Queue;
 using DataStructure.SingleLinkedList;
-using DataStructure.Stack;
+using DataStructure.Tree.BinarySearchTree;
+using DataStructure.Tree.BinaryTree;
 
 namespace DataStructure
 {
@@ -37,14 +39,64 @@ namespace DataStructure
 
 
             //********** Queue ******************************************
-            RemoveQueueDoublyLinkedList();
+            //RemoveQueueDoublyLinkedList();
             //AddQueueDoublyLinkedList();
             //RemoveQueueArray();
             //AddQueueArray();
+
+            //********** Tree ********************************************
+            //AddTree();
+            //InOrder();
+            //PreOrder();
+            PostOrder();
         }
+
+        private static void PostOrder()
+        {
+            var binarySearchTree = new BinarySearchTree<int>(new List<int> { 23, 16, 45, 3, 22, 37, 99 });
+            var list = new BinaryTree<int>().PostOrder(binarySearchTree.Root);
+            foreach (var value in list)
+            {
+                Console.WriteLine(value);
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void PreOrder()
+        {
+            var binarySearchTree = new BinarySearchTree<int>(new List<int> { 23, 16, 45, 3, 22, 37, 99 });
+            var list = new BinaryTree<int>().PreOrder(binarySearchTree.Root);
+            foreach (var value in list)
+            {
+                Console.WriteLine(value);
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void InOrder()
+        {
+            var binarySearchTree = new BinarySearchTree<int>(new List<int> { 23, 16, 45, 3, 22, 37, 99 });
+            var list = new BinaryTree<int>().InOrder(binarySearchTree.Root);
+            foreach (var value in list)
+            {
+                Console.WriteLine(value);
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void AddTree()
+        {
+            var binarySearchTree = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 22, 37, 99 });
+            Console.ReadKey();
+        }
+
+        /*------------------- Queue ---------------------------------------*/
         private static void RemoveQueueDoublyLinkedList()
         {
-            var queue = new Queue<int>(QueueType.LinkedList);
+            var queue = new Queue.Queue<int>(QueueType.LinkedList);
             queue.EnQueue(5);
             queue.EnQueue(7);
             queue.EnQueue(9);
@@ -56,7 +108,7 @@ namespace DataStructure
 
         private static void AddQueueDoublyLinkedList()
         {
-            var queue = new Queue<int>(QueueType.LinkedList);
+            var queue = new Queue.Queue<int>(QueueType.LinkedList);
             queue.EnQueue(5);
             queue.EnQueue(7);
             queue.EnQueue(9);
@@ -67,7 +119,7 @@ namespace DataStructure
 
         private static void RemoveQueueArray()
         {
-            var queue = new Queue<int>();
+            var queue = new Queue.Queue<int>();
             queue.EnQueue(5);
             queue.EnQueue(7);
             queue.EnQueue(9);
@@ -79,21 +131,19 @@ namespace DataStructure
 
         private static void AddQueueArray()
         {
-            var queue = new Queue<int>();
+            var queue = new Queue.Queue<int>();
             queue.EnQueue(5);
             queue.EnQueue(7);
             queue.EnQueue(9);
 
             Console.WriteLine(queue.Peek());
-
-
         }
 
         /*---------------------- Stack -------------------------------- */
 
         private static void PushArray()
         {
-            var stack = new Stack<int>();
+            var stack = new Stack.Stack<int>();
             stack.Push(5);
             stack.Push(48);
             stack.Push(9);
@@ -105,7 +155,7 @@ namespace DataStructure
 
         private static void PushLinkedList()
         {
-            var stack = new Stack<int>();
+            var stack = new Stack.Stack<int>();
             stack.Push(26);
             stack.Push(4);
             stack.Push(18);

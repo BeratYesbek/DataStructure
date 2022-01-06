@@ -17,6 +17,14 @@ namespace DataStructure.Tree.BinarySearchTree
 
         }
 
+        public BinarySearchTree(IEnumerable<T> collection)
+        {
+            foreach (var value in collection)
+            {
+                Add(value);
+            }
+        }
+
         public void Add(T value)
         {
             if (value == null)
@@ -50,7 +58,7 @@ namespace DataStructure.Tree.BinarySearchTree
                     else
                     {
                         current = current.Right;
-                        if (current==null)
+                        if (current == null)
                         {
                             parent.Right = newNode;
                             break;

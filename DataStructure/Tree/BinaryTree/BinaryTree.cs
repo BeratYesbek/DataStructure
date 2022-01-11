@@ -71,6 +71,54 @@ namespace DataStructure.Tree.BinaryTree
             return list;
         }
 
+        public List<Node<T>> PreOrderNoneRecursive(Node<T> root)
+        {
+            var list = new List<Node<T>>();
+            var stack = new Stack<Node<T>>();
+
+            stack.Push(root);
+            while (stack.Count != 0)
+            {
+                var temp = stack.Pop();
+                list.Add(temp);
+                if (temp.Right != null)
+                {
+                    stack.Push(temp.Right);
+                }
+
+                if (temp.Left != null)
+                {
+                    stack.Push(temp.Left);
+                }
+            }
+
+            return list;
+        }
+
+        public List<Node<T>> LevelOrderNoneRecursive(Node<T> root)
+        {
+            var list = new List<Node<T>>();
+            var queue = new Queue<Node<T>>();
+            queue.Enqueue(root);
+
+            while (queue.Count > 0)
+            {
+                var temp = queue.Dequeue();
+                list.Add(temp);
+                if (temp.Left != null)
+                {
+                    queue.Enqueue(temp.Left);
+                }
+
+                if (temp.Right != null)
+                {
+                    queue.Enqueue(temp.Right);
+                }
+            }
+
+            return list;
+        }
+
         public List<Node<T>> PostOrder(Node<T> root)
         {
             if (root != null)

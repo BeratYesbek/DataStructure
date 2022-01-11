@@ -48,7 +48,29 @@ namespace DataStructure
             //AddTree();
             //InOrder();
             //PreOrder();
-            PostOrder();
+            //PostOrder();
+            //Find();
+            Remove();
+
+        }
+
+        private static void Remove()
+        {
+            var binarySearchTree = new BinarySearchTree<int>(new List<int> { 23, 16, 45, 3, 22, 37, 99 });
+            var node = binarySearchTree.Remove(binarySearchTree.Root, 16);
+            var list = new BinaryTree<int>().PreOrder(node);
+
+            foreach (var value in list)
+            {
+                Console.WriteLine(value);
+            }
+
+        }
+
+        private static void Find()
+        {
+            var binarySearchTree = new BinarySearchTree<int>(new List<int> { 23, 16, 45, 3, 22, 37, 99 });
+            var node = binarySearchTree.Find(binarySearchTree.Root, 3);
         }
 
         private static void PostOrder()

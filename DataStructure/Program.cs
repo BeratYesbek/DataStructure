@@ -50,8 +50,27 @@ namespace DataStructure
             //PreOrder();
             //PostOrder();
             //Find();
-            Remove();
+            //Remove();
+            //MaxDepth();
+            DeepestNode();
+        }
 
+        private static void DeepestNode()
+        {
+            var binaryTree = new BinaryTree<char>();
+            binaryTree.Root = new Node<char>('F');
+            binaryTree.Root.Left = new Node<char>('A');
+            binaryTree.Root.Right = new Node<char>('T');
+            binaryTree.Root.Left.Left = new Node<char>('D');
+            var deepestNode = binaryTree.DeepestNode(binaryTree.Root);
+            var maxDept = BinaryTree<char>.MaxDepth(binaryTree.Root);
+        }
+
+        private static void MaxDepth()
+        {
+            var binarySearchTree = new BinarySearchTree<int>(new List<int> { 23, 16, 45, 3, 22, 37, 99 });
+            var depth = -BinaryTree<int>.MaxDepth(binarySearchTree.Root);
+            Console.WriteLine(depth);
         }
 
         private static void Remove()

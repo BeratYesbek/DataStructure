@@ -9,6 +9,7 @@ namespace DataStructure.Tree.BinaryTree
 {
     public class BinaryTree<T> where T : IComparable
     {
+        public Node<T> Root { get; set; }
         public List<Node<T>> List { get; set; }
 
         public BinaryTree()
@@ -35,6 +36,18 @@ namespace DataStructure.Tree.BinaryTree
                 List.Add(root);
                 PreOrder(root.Left);
                 PreOrder(root.Right);
+            }
+
+            return List;
+        }
+
+        public List<Node<T>> PostOrder(Node<T> root)
+        {
+            if (root != null)
+            {
+                PostOrder(root.Left);
+                PostOrder(root.Right);
+                List.Add(root);
             }
 
             return List;
@@ -119,16 +132,44 @@ namespace DataStructure.Tree.BinaryTree
             return list;
         }
 
-        public List<Node<T>> PostOrder(Node<T> root)
+        public static int MaxDepth(Node<T> root)
         {
-            if (root != null)
+            if (root == null)
             {
-                PostOrder(root.Left);
-                PostOrder(root.Right);
-                List.Add(root);
+                return 0;
             }
 
-            return List;
+            int leftDepth = MaxDepth(root.Left);
+            int rightDepth = MaxDepth(root.Right);
+
+            return (leftDepth > rightDepth) ? leftDepth + 1 : rightDepth + 1;
+        }
+
+        public Node<T> DeepestNode(Node<T> root)
+        {
+            Node<T> temp = null;
+            if (root == null)
+            {
+                throw new Exception("Empty tree!");
+            }
+
+            var queue = new Queue<Node<T>>();
+            queue.Enqueue(root);
+            while (queue.Count > 0)
+            {
+                temp = queue.Dequeue();
+                if (temp.Left != null)
+                {
+                    queue.Enqueue(temp.Left);
+                }
+
+                if (temp.Right != null)
+                {
+                    queue.Enqueue(temp.Right);
+                }
+            }
+
+            return temp;
         }
 
 
